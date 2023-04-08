@@ -1,0 +1,291 @@
+:root {
+    --parent-color: #fff;
+    --new-color: #666;
+}
+
+
+/* Reset styles */
+html,
+body {
+    font-family: 'Roboto', sans-serif;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+:focus,
+:active,
+a:focus,
+a:active {
+    outline: none;
+}
+
+body {
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+input,
+button,
+textarea {
+    font-size: inherit;
+}
+
+button {
+    cursor: pointer;
+    color: inherit;
+    background-color: inherit;
+}
+
+a,
+a:link,
+a:visited {
+    color: inherit;
+    text-decoration: none;
+}
+
+
+ul {
+    list-style: none;
+}
+
+img {
+    vertical-align: top;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: inherit;
+    font-size: inherit;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+main {
+    flex: 1 1 auto;
+}
+
+.product-wrapper {
+    display: flex;
+    gap: 35px;
+    justify-content: center;
+    margin-top: 30px;
+}
+@media screen and (max-width: 751px) {
+    .product-wrapper {
+        flex-wrap: wrap;
+        gap: 20px;
+    }
+}
+
+.product-card {
+    display: flex;
+    flex-direction: column;
+    width: 350px;
+    border-radius: 10%;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    color: #fff;
+}
+@media screen and (max-width: 751px) {
+    .product-card {
+        margin: 20px;
+        width: 100%;
+        border-radius: 0;
+    }
+}
+
+
+.background{
+    background-color: #3EE097;
+}
+
+.color{
+    color: black;
+}
+
+.product-card__image {
+    background-color: #2EAC77;
+    border-radius: 50%;
+    padding: 15px;
+}
+
+.product-header {
+    margin-top: 30px;
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.product-card__sub-title {
+    font-weight: bold;
+    font-size: 32px;
+    text-align: end;
+    margin-bottom: 20px;
+}
+
+.product-card__info {
+    padding: 25px;
+}
+
+.product-card__title {
+    font-size: 45px;
+}
+
+.product-card__features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 30px 0;
+}
+
+.product-card__features label {
+    display: inline-flex;
+    align-items: center;
+    margin-bottom: 5px;
+    font-size: 16px;
+}
+
+.product-card__features input[type="checkbox"] {
+    margin-right: 10px;
+}
+
+.product-card__price {
+    font-size: 19px;
+    text-align: right;
+    margin-bottom: 25px;
+}
+@media screen and (max-width: 376px) {
+    .product-card__price  {
+        font-size: 15px;
+    }
+}
+
+
+/*chekbox*/
+.parent {
+    color: #fff;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+}
+
+.container {
+
+}
+
+.row {
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    font-size: 22px;
+}
+
+@media screen and (max-width: 376px) {
+    .row  {
+        font-size: 17px;
+    }
+}
+
+
+
+.row__task {
+    margin-right: 20px;
+}
+
+.row__checkbox {
+    position: relative;
+    width: 30px;
+    height: 30px;
+}
+
+.row__input {
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    opacity: 0;
+}
+
+.row__checkmark {
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    border-radius: 50%;
+    border: 3px solid #fff;
+    cursor: pointer;
+}
+
+.check {
+    border: 3px solid #666;
+    border-radius: 50%;
+}
+
+.row__checkmark::after {
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    left: 11px;
+    bottom: 8px;
+    border: solid var(--parent-color);
+    border-width: 0 3px 3px 0;
+    transition: width 0.5s, height 0.5s, opacity 0.5s;
+    transform: rotate(45deg);
+    opacity: 0;
+    z-index: 1;
+}
+
+.check ::after {
+    border: solid var(--new-color);
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    left: 8px;
+    bottom: 5px;
+    border-width: 0 3px 3px 0;
+    transition: width 0.5s, height 0.5s, opacity 0.5s;
+    transform: rotate(45deg);
+    opacity: 0;
+    z-index: 1;
+
+}
+
+
+
+.row__input:checked + .row__checkmark::after {
+    width: 14px;
+    height: 24px;
+    opacity: 1;
+}
+
+
+.icon_star {
+    cursor: pointer;
+    width: 35px;
+    height: 35px;
+    background-color: #fff;
+    clip-path: polygon(50% 0%, 65% 31%, 98% 35%, 72% 61%, 79% 91%, 50% 70%, 21% 91%, 26% 59%, 2% 35%, 35% 30%);
+    border: 1px solid #fff;
+}
+
+
